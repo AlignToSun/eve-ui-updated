@@ -939,7 +939,7 @@ namespace eveui {
 	}
 
 	export function format_char( char_id: string ): string {
-		let character = cache_retrieve( '/v4/characters/' + char_id );
+		let character = cache_retrieve( '/latest/characters/' + char_id );
 		let html: string = /*m_html*/`
 			<table>
 			<tr><td colspan="2">
@@ -947,7 +947,7 @@ namespace eveui {
 			${ character.name }
 			<hr />
 			<img class="float_left" src="${ eveui_imageserver( 'Corporation/' + character.corporation_id + '_64' ) }" height="64" width="64" />
-			Member of <a href="corp:${ character.corporation_id }"><eveui key="/v3/corporations/${ character.corporation_id }" path="corporation_name">${ character.corporation_id }</eveui></a>
+			Member of <a href="corp:${ character.corporation_id }"><eveui key="/latest/corporations/${ character.corporation_id }" path="corporation_name">${ character.corporation_id }</eveui></a>
 
 			<tr><td>Bio:<td>${ character.description.replace( /<font[^>]+>/g, '<font>' ) }
 			</table>
@@ -968,7 +968,7 @@ namespace eveui {
 		mark( 'char window created' );
 
 		// load required chars and set callback to display
-		cache_request( '/v4/characters/' + char_id ).done( function() {
+		cache_request( '/latest/characters/' + char_id ).done( function() {
 			eveui_window.find( '.eveui_content' ).html( format_char( char_id ) );
 
 			$( window ).trigger( 'resize' );
@@ -982,17 +982,17 @@ namespace eveui {
 	}
 
 	export function format_corp( corp_id: string ): string {
-		let corporation = cache_retrieve( '/v3/corporations/' + corp_id );
+		let corporation = cache_retrieve( '/latest/corporations/' + corp_id );
 		let html: string = /*m_html*/`
 			<table>
 			<tr><td colspan="2">
 			<img class="float_left" src="${ eveui_imageserver( 'Corporation/' + corp_id + '_128' ) }" height="128" width="128" />
-			${ corporation.corporation_name }
+			${ corporation.name }
 			<hr />
 			<img class="float_left" src="${ eveui_imageserver( 'Alliance/' + corporation.alliance_id + '_64' ) }" height="64" width="64" />
-			Member of <eveui key="/v2/alliances/${ corporation.alliance_id }" path="alliance_name">${ corporation.alliance_id }</eveui>
+			Member of <eveui key="/latest/alliances/${ corporation.alliance_id }" path="alliance_name">${ corporation.alliance_id }</eveui>
 
-			<tr><td>Bio:<td>${ corporation.corporation_description.replace( /<font[^>]+>/g, '<font>' ) }
+			<tr><td>Bio:<td>${ corporation.description.replace( /<font[^>]+>/g, '<font>' ) }
 			</table>
 			`;
 		return html;
@@ -1011,7 +1011,7 @@ namespace eveui {
 		mark( 'corp window created' );
 
 		// load required corps and set callback to display
-		cache_request( '/v3/corporations/' + corp_id ).done( function() {
+		cache_request( '/latest/corporations/' + corp_id ).done( function() {
 			eveui_window.find( '.eveui_content' ).html( format_corp( corp_id ) );
 
 			$( window ).trigger( 'resize' );
@@ -1215,7 +1215,7 @@ namespace eveui {
 				return;
 			}
 			let char_id: string = selected_element.attr( 'data-charid' ) || this.href.substring(this.href.indexOf( ':' ) + 1);
-			cache_request( '/v4/characters/' + char_id ).done( function() {
+			cache_request( '/latest/characters/' + char_id ).done( function() {
 				selected_element.replaceWith( `<span class="eveui_content eveui_char">${ format_char( char_id ) }</span>` );
 				mark( 'char window expanded' );
 			});
