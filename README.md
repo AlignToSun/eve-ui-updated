@@ -32,3 +32,7 @@ Getting the DNA string for a fit is left as an exercise for the reader, see:
 * Pyfa
 * https://www.fuzzwork.co.uk/ships/dnagen.php
 * Copying ingame text from a notepad or chat also works if you know how
+
+# Build Compressed JS file
+
+Check `Makefile`, use `make all` to generate all
