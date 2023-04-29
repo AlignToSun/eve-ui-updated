@@ -1,4 +1,10 @@
 # eve-ui
+
+⚠️ Please be advised that the original author of [eve-ui](https://github.com/quiescens/eve-ui) has marked the project as inactive, this folk is to keep the project alive and provide support.
+
+----
+
+
 A mostly standalone EVE Online fit display script for inclusion in arbitrary websites.
 (Mostly standalone, requires jQuery and uses CCP's APIs but no other servers.)
 Basic usage example:
@@ -9,7 +15,7 @@ Basic usage example:
 
 If you are using a strict CSP you may want to set `eveui_style=""` to prevent an error about inline styles, if you still want to use the default style you will need to link the CSS manually.
 
-https://quiescens.github.io/eve-ui/examples.html to see what it looks like by default, view source to see how it works.
+checkout https://redteadev.github.io/eve-ui-updated/examples.html to see what it looks like by default, view source to see how it works.
 
 With the removal of the in game browser, the old shortcut of using IGB links to display ship fittings is no longer available. 
 This script can be loaded in an arbitrary HTML document to automatically generate viewable, copy-pasteable fit windows for any element that it detects as a fit.
@@ -36,3 +42,33 @@ Getting the DNA string for a fit is left as an exercise for the reader, see:
 # Build Compressed JS file
 
 Check `Makefile`, use `make all` to generate all
+
+# Work with Next.js
+
+Download the `eve-ui.min.js` and drop it into `public/static` folder,
+then add the following code into `pages/_app.tsx`:
+
+```ts
+export default function App({ Component, pageProps }: AppProps) {
+  return (
+    <div>
+      <script
+        src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"
+        async
+      ></script>
+      <Script
+        onReady={() => {
+          // @ts-ignore - if you want to change config:
+          eveui_allow_edit = true;
+        }}
+        type="text/javascript"
+        src="./static/eve-ui.min.js"
+        defer
+      ></Script>
+      <Component {...pageProps} />
+    </div>
+  );
+}
+
+
+```
