@@ -12,6 +12,7 @@ Basic usage example:
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" defer></script>
 <script src="eve-ui.min.js" defer></script>
 ```
+For [Next.js and other react framework, check here](#work-with-nextjs)
 
 If you are using a strict CSP you may want to set `eveui_style=""` to prevent an error about inline styles, if you still want to use the default style you will need to link the CSS manually.
 
@@ -69,6 +70,4 @@ export default function App({ Component, pageProps }: AppProps) {
     </div>
   );
 }
-
-
 ```
