@@ -16,7 +16,7 @@ For [Next.js and other react framework, check here](#work-with-nextjs)
 
 If you are using a strict CSP you may want to set `eveui_style=""` to prevent an error about inline styles, if you still want to use the default style you will need to link the CSS manually.
 
-checkout https://redteadev.github.io/eve-ui-updated/examples.html to see what it looks like by default, view source to see how it works.
+checkout https://redcokedevelopment.github.io/eve-ui-updated/examples.html to see what it looks like by default, view source to see how it works.
 
 With the removal of the in game browser, the old shortcut of using IGB links to display ship fittings is no longer available. 
 This script can be loaded in an arbitrary HTML document to automatically generate viewable, copy-pasteable fit windows for any element that it detects as a fit.
