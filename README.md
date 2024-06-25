@@ -1,6 +1,7 @@
 # eve-ui
 
-⚠️ Please be advised that the original author of [eve-ui](https://github.com/quiescens/eve-ui) has marked the project as inactive, this folk is to keep the project alive and provide support.
+> [!IMPORTANT] 
+> Please be advised that the original author of [eve-ui](https://github.com/quiescens/eve-ui) has marked the project as inactive, this folk is to keep the project alive and provide support for those who still using it.
 
 ----
 
