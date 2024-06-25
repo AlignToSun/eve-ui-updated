@@ -37,7 +37,7 @@ At present, the script should work with almost any element that has a data-dna /
 The data- format is more flexible, but the href format can be useful for supporting forums or CMS's where users might only be allowed to post URLs, or where you already have links on a site and only need to change the href.
 
 Getting the DNA string for a fit is left as an exercise for the reader, see:
-* Pyfa, [responsible python code to generate dna from fit](https://github.com/pyfa-org/Pyfa/blob/fa6be2edfb77b411b3d31b8e4bf77b17f819403a/service/port/dna.py#L160)
+* Pyfa, [python code to generate dna from fit](https://github.com/pyfa-org/Pyfa/blob/fa6be2edfb77b411b3d31b8e4bf77b17f819403a/service/port/dna.py#L160)
 * https://www.fuzzwork.co.uk/ships/dnagen.php
 * Copying ingame text from a notepad or chat also works if you know how
 
